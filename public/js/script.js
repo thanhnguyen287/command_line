@@ -581,7 +581,7 @@ $('textarea').keyup(function(e) {
         type:'get',
         datatype :'json',
         data:{ username : username , directory : directory},   
-        url:"/ls"
+        url:"/cat"
         }).done(function(data){
             if(directory=="")
               $('.terminal-output').append('<div class="command" role="presentation" aria-hidden="true"><div style="width: 100%;"><span class="user">root@' + username + ': ~' + directory+ '$ </span><span>' + command + '</span></div></div>'); 
