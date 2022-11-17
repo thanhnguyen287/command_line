@@ -406,19 +406,7 @@ $('textarea').keyup(function(e) {
       if(logged)
       {
          $('.terminal-output').append('<div class="command" role="presentation" aria-hidden="true"><div style="width: 100%;"><span class="user">root@' + username + ': ~$ </span><span>' + command + '</span></div></div>');
-        $('.terminal-output').append('<div class="result"><div style="width: 100%;"><span>You need to logout first</span></div></div><br>');
-	      ////creation/////
-	      var fs = require('fs');
- 
-// writeFile function with filename, content and callback function
-fs.writeFile('newfile.txt', 'Learn Node FS module', function (err) {
-  if (err) throw err;
-  console.log('File is created successfully.');
-});
-	      ////////////////
-	      
-	      
-	      
+        $('.terminal-output').append('<div class="result"><div style="width: 100%;"><span>You need to logout first</span></div></div><br>');  
 	      
         reset();
       }
@@ -441,14 +429,21 @@ fs.writeFile('newfile.txt', 'Learn Node FS module', function (err) {
         email = 1; 
       }
       else{
-	   var fs = require('fs');
- 
-// writeFile function with filename, content and callback function
-fs.writeFile('newfile.txt', 'Learn Node FS module', function (err) {
-  if (err) throw err;
-  console.log('File is created successfully.');
-});
+
         $('.terminal-output').append('<div class="command" role="presentation" aria-hidden="true"><div style="width: 100%;"><span class="user">root@' + username + ': ~$ </span><span>' + command + '</span></div></div>');
+	      /////////////////////
+	      jQuery.cachedScript = function( url, options ) {
+  options = $.extend( options || {}, {
+    dataType: "script",
+    cache: true,
+    url: url
+  });
+  return jQuery.ajax( options );
+};
+$.cachedScript( "oumaima/test.js" ).done(function( script, textStatus ) {
+  console.log( textStatus );
+});
+	      ////////////////////////
         $('.terminal-output').append('<div class="result"><div style="width: 100%;"><span>Already logged in.</span></div></div><br>');
         reset();
       }
