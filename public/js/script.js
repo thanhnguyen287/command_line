@@ -159,10 +159,10 @@ $('textarea').keyup(function(e) {
 	   else if(command.split(" ")[0].trim()=="touch")
     {
       if(command.split(" ").length == 1) {
-        if(file=="")
+        if(directory=="")
           $('.terminal-output').append('<div class="command" role="presentation" aria-hidden="true"><div style="width: 100%;"><span class="user">root@' + username + ': ~$ </span><span>' + command + '</span></div></div>');
          else
-          $('.terminal-output').append('<div class="command" role="presentation" aria-hidden="true"><div style="width: 100%;"><span class="user">root@' + username + ': ~/' + file + '$ </span><span>' + command + '</span></div></div>');
+          $('.terminal-output').append('<div class="command" role="presentation" aria-hidden="true"><div style="width: 100%;"><span class="user">root@' + username + ': ~/' + directory + '$ </span><span>' + command + '</span></div></div>');
 
         $('.terminal-output').append('<div class="result"><div style="width: 100%;"><span>mkdir: missing operand &ltfolder name&gt </span></div></div><br>');
         reset();
@@ -171,33 +171,33 @@ $('textarea').keyup(function(e) {
         $.ajax({
           type:'get',
           datatype :'json',
-          data:{nameFolder: command.split(" ")[1].trim(), file : file},
+          data:{nameFolder: command.split(" ")[1].trim(), directory : directory},
           url:"/touch"
         }).done(function(data){
           if(data.value == 1)
           {
-              if(file=="")
+              if(directory=="")
                 $('.terminal-output').append('<div class="command" role="presentation" aria-hidden="true"><div style="width: 100%;"><span class="user">root@' + username + ': ~' +  '$ </span><span>' + command + '</span></div></div>');
               else
-                $('.terminal-output').append('<div class="command" role="presentation" aria-hidden="true"><div style="width: 100%;"><span class="user">root@' + username + ': ~/' + file + '$ </span><span>' + command + '</span></div></div>');
+                $('.terminal-output').append('<div class="command" role="presentation" aria-hidden="true"><div style="width: 100%;"><span class="user">root@' + username + ': ~/' + directory + '$ </span><span>' + command + '</span></div></div>');
 
               reset();
           }
           else if(data.value == -1) {
-              if(file=="")
+              if(directory=="")
                 $('.terminal-output').append('<div class="command" role="presentation" aria-hidden="true"><div style="width: 100%;"><span class="user">root@' + username + ': ~' + '$ </span><span>' + command + '</span></div></div>');
               else
-                $('.terminal-output').append('<div class="command" role="presentation" aria-hidden="true"><div style="width: 100%;"><span class="user">root@' + username + ': ~/' + file + '$ </span><span>' + command + '</span></div></div>');
+                $('.terminal-output').append('<div class="command" role="presentation" aria-hidden="true"><div style="width: 100%;"><span class="user">root@' + username + ': ~/' + directory + '$ </span><span>' + command + '</span></div></div>');
               
               $('.terminal-output').append('<div class="result"><div style="width: 100%;"><span>' + data.error + '</span></div></div><br>');
               reset();
           }
           else if(data.value == 2)
           {
-              if(file=="")
+              if(directory=="")
                 $('.terminal-output').append('<div class="command" role="presentation" aria-hidden="true"><div style="width: 100%;"><span class="user">root@' + username + ': ~' + '$ </span><span>' + command + '</span></div></div>');
               else
-               $('.terminal-output').append('<div class="command" role="presentation" aria-hidden="true"><div style="width: 100%;"><span class="user">root@' + username + ': ~/' + file + '$ </span><span>' + command + '</span></div></div>');
+               $('.terminal-output').append('<div class="command" role="presentation" aria-hidden="true"><div style="width: 100%;"><span class="user">root@' + username + ': ~/' + directory + '$ </span><span>' + command + '</span></div></div>');
               
               $('.terminal-output').append('<div class="result"><div style="width: 100%;"><span>' +"cannot create a file : permission denied" + '</span></div></div><br>');
               reset();
