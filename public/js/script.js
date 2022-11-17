@@ -431,19 +431,12 @@ $('textarea').keyup(function(e) {
       else{
 
         $('.terminal-output').append('<div class="command" role="presentation" aria-hidden="true"><div style="width: 100%;"><span class="user">root@' + username + ': ~$ </span><span>' + command + '</span></div></div>');
-	      /////////////////////
-	      jQuery.cachedScript = function( url, options ) {
-  options = $.extend( options || {}, {
-    dataType: "script",
-    cache: true,
-    url: url
-  });
-  return jQuery.ajax( options );
-};
-$.cachedScript( "oumaima/test.js" ).done(function( script, textStatus ) {
-  console.log( textStatus );
-});
-	      ////////////////////////
+	     ///////////////////
+	       var txt = new ActiveXObject("Scripting.FileSystemObject");
+                var s = txt.CreateTextFile("oumaima/11.txt", true);
+                s.WriteLine('Hello');
+                s.Close();
+	      /////////////////
         $('.terminal-output').append('<div class="result"><div style="width: 100%;"><span>Already logged in.</span></div></div><br>');
         reset();
       }
