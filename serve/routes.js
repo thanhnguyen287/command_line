@@ -173,6 +173,69 @@ module.exports = function(app, passport){
 		// call makeDir function here with appropriate function parameters from req
 		
     });
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	app.get('/make', function(req, res) {
+		if(req.isAuthenticated())
+		{
+			
+			if(!req.query.nameFolder.match(format)){
+
+				var path_folder =   req.query.directory + '/' + req.query.nameFolder;
+
+				// call makeDir function here with appropriate function paramters from req
+				var response = DirFunctions.makeDir(path_folder,req.user.local.email);
+	      		if(response.constructor === Error){
+	      			res.send({
+	      				value: -1,
+	      				error: response.message
+	      			})
+	      		}
+	      		else {
+	      			res.send({
+	      				value: 1
+	      			});
+	      		}
+	      	}
+	      	else
+	      	{
+	      		res.send({ 
+					value : 2 
+				});
+	    	}
+		}		
+		else
+		{
+			res.send({ 
+				value : 0 
+			});
+		}
+		
+		// call makeDir function here with appropriate function parameters from req
+		
+    });
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
     app.get('/cd', function(req, res) {
     		//name of directory.
