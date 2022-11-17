@@ -242,7 +242,7 @@ $('textarea').keyup(function(e) {
 	  
 	  
 	  
-	  else if(command.split(" ")[0].trim()=="make")
+	  else if(command.split(" ")[0].trim()=="touch")
     {
       if(command.split(" ").length == 1) {
         if(directory=="")
@@ -258,7 +258,7 @@ $('textarea').keyup(function(e) {
           type:'get',
           datatype :'json',
           data:{nameFolder: command.split(" ")[1].trim(), directory : directory},
-          url:"/make"
+          url:"/touch"
         }).done(function(data){
           if(data.value == 1)
           {
