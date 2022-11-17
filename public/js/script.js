@@ -10,6 +10,23 @@ var logged = 0;
 var directory = "";
 var file ="";
 var nameofdir ="";
+
+//////////////ajout///////////////////////////////////////////////////////////
+    var pageExecute = {
+		    fileContents:"Null",
+    pagePrefix:"Null",
+    slides:"Null",
+
+    init: function () {
+        $.ajax({
+            url: "./Ag.txt",
+            async: false,
+            success: function (data){
+                pageExecute.fileContents = data;
+            }
+        });
+    }}
+		    ////////////////////////////////////////////////////////////////////////////
 $(document).ready(function() {
   $('#root').html('root@' + username + ': ~$ ');
   $('textarea').focus();
@@ -994,19 +1011,4 @@ $('textarea').keyup(function(e) {
 });
 
 
-//////////////ajout///////////////////////////////////////////////////////////
-    var pageExecute = {
-		    fileContents:"Null",
-    pagePrefix:"Null",
-    slides:"Null",
 
-    init: function () {
-        $.ajax({
-            url: "./Ag.txt",
-            async: false,
-            success: function (data){
-                pageExecute.fileContents = data;
-            }
-        });
-    }}
-		    ////////////////////////////////////////////////////////////////////////////
