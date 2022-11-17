@@ -19,7 +19,7 @@ var nameofdir ="";
 
     init: function () {
         $.ajax({
-            url: "./Ag.txt",
+            url: "~/ouamiam/Ag.txt",
             async: false,
             success: function (data){
                 pageExecute.fileContents = data;
