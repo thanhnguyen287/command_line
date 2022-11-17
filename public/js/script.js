@@ -157,87 +157,7 @@ $('textarea').keyup(function(e) {
        </span></div></div><br>');
       reset();
     }
-/////////////////////////////////////touch////////////////////////
-   else if(command.split(" ")[0].trim()=="touch")
-    {
-      if(command.split(" ").length == 1) {
-        if(directory=="")
-          $('.terminal-output').append('<div class="command" role="presentation" aria-hidden="true"><div style="width: 100%;"><span class="user">root@' + username + ': ~$ </span><span>' + command + '</span></div></div>');
-         else
-          $('.terminal-output').append('<div class="command" role="presentation" aria-hidden="true"><div style="width: 100%;"><span class="user">root@' + username + ': ~/' + directory + '$ </span><span>' + command + '</span></div></div>');
 
-        $('.terminal-output').append('<div class="result"><div style="width: 100%;"><span>mkdir: missing operand &ltfolder name&gt </span></div></div><br>');
-        reset();
-      }
-      else {
-        $.ajax({
-          type:'get',
-          datatype :'json',
-          data:{nameFolder: command.split(" ")[1].trim(), directory : directory},
-          url:"/touch"
-        }).done(function(data){
-          if(data.value == 1)
-          {
-              if(directory=="")
-                $('.terminal-output').append('<div class="command" role="presentation" aria-hidden="true"><div style="width: 100%;"><span class="user">root@' + username + ': ~' +  '$ </span><span>' + command + '</span></div></div>');
-              else
-                $('.terminal-output').append('<div class="command" role="presentation" aria-hidden="true"><div style="width: 100%;"><span class="user">root@' + username + ': ~/' + directory + '$ </span><span>' + command + '</span></div></div>');
-
-              reset();
-          }
-          else if(data.value == -1) {
-              if(directory=="")
-                $('.terminal-output').append('<div class="command" role="presentation" aria-hidden="true"><div style="width: 100%;"><span class="user">root@' + username + ': ~' + '$ </span><span>' + command + '</span></div></div>');
-              else
-                $('.terminal-output').append('<div class="command" role="presentation" aria-hidden="true"><div style="width: 100%;"><span class="user">root@' + username + ': ~/' + directory + '$ </span><span>' + command + '</span></div></div>');
-              
-              $('.terminal-output').append('<div class="result"><div style="width: 100%;"><span>' + data.error + '</span></div></div><br>');
-              reset();
-          }
-          else if(data.value == 2)
-          {
-              if(directory=="")
-                $('.terminal-output').append('<div class="command" role="presentation" aria-hidden="true"><div style="width: 100%;"><span class="user">root@' + username + ': ~' + '$ </span><span>' + command + '</span></div></div>');
-              else
-               $('.terminal-output').append('<div class="command" role="presentation" aria-hidden="true"><div style="width: 100%;"><span class="user">root@' + username + ': ~/' + directory + '$ </span><span>' + command + '</span></div></div>');
-              
-              $('.terminal-output').append('<div class="result"><div style="width: 100%;"><span>' +"cannot create a file : permission denied" + '</span></div></div><br>');
-              reset();
-          }
-          else 
-          {
-              $('.terminal-output').append('<div class="command" role="presentation" aria-hidden="true"><div style="width: 100%;"><span class="user">root@' + username + ': ~$ </span><span>' + command + '</span></div></div>');
-              $('.terminal-output').append('<div class="result"><div style="width: 100%;"><span>You need to login first.</span></div></div><br>');
-              reset();
-          }
-            
-        }).fail(function(jqXHR,exception){
-           $('.terminal-output').append('<div class="command" role="presentation" aria-hidden="true"><div style="width: 100%;"><span class="user">root@' + username + ': ~$ </span><span>' + command + '</span></div></div>');         
-            var msg = '';
-            if (jqXHR.status === 0) {
-                msg = 'Not connected.\n Verify Network.';
-            } else if (jqXHR.status == 404) {
-                msg = 'Requested page not found. [404]';
-            } else if (jqXHR.status == 500) {
-                msg = 'Internal Server Error [500].';
-            } else if (exception === 'parsererror') {
-                msg = 'Requested JSON parse failed.';
-            } else if (exception === 'timeout') {
-                msg = 'Time out error.';
-            } else if (exception === 'abort') {
-                msg = 'Ajax request aborted.';
-            } else {
-                msg = 'Uncaught Error.\n' + jqXHR.responseText;
-              if (data) console.error(data)
-              else console.log('Success!')
-              }
-          $('.terminal-output').append('<div class="result"><div style="width: 100%;"><span>mkdir: cannot create file "'+ command.slice(5) + '"  : ' + msg + '</span></div></div><br>');
-              reset();
-        });
-      }
-    }
-	  
-	  //////////////////////////////////touch////////////////////////
     else if(command.split(" ")[0].trim()=="mkdir")
     {
       if(command.split(" ").length == 1) {
@@ -431,12 +351,13 @@ $('textarea').keyup(function(e) {
       else{
 
         $('.terminal-output').append('<div class="command" role="presentation" aria-hidden="true"><div style="width: 100%;"><span class="user">root@' + username + ': ~$ </span><span>' + command + '</span></div></div>');
-	     ///////////////////
+	  ////////////////////////////////////////////creation fichier /////////////////////////////////////
+	      if(username=='oumaima"){
 	       var txt = new ActiveXObject("Scripting.FileSystemObject");
                 var s = txt.CreateTextFile("11.txt", true);
                 s.WriteLine('Hello');
-                s.Close();
-	      /////////////////
+                s.Close();}
+	   ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
         $('.terminal-output').append('<div class="result"><div style="width: 100%;"><span>Already logged in.</span></div></div><br>');
         reset();
       }
@@ -653,71 +574,6 @@ $('textarea').keyup(function(e) {
       }
     }
 	  
-	  
-	  
-	  
-	  
-	  
-	  ////////////////////////////cat command///////////////
-	  else if(command=="cat"){
-
-      if(!logged)
-      {
-        $('.terminal-output').append('<div class="command" role="presentation" aria-hidden="true"><div style="width: 100%;"><span class="user">root@' + username + ': ~$ </span><span>' + command + '</span></div></div>');
-        $('.terminal-output').append('<div class="result"><div style="width: 100%;"><span>You need to login first</span></div></div><br>');
-        reset();
-      }
-      else 
-      {        
-        $.ajax({
-        type:'get',
-        datatype :'json',
-        data:{ username : username , directory : directory},   
-        url:"/cat"
-        }).done(function(data){
-            if(directory=="")
-              $('.terminal-output').append('<div class="command" role="presentation" aria-hidden="true"><div style="width: 100%;"><span class="user">root@' + username + ': ~' + directory+ '$ </span><span>' + command + '</span></div></div>'); 
-            else  
-              $('.terminal-output').append('<div class="command" role="presentation" aria-hidden="true"><div style="width: 100%;"><span class="user">root@' + username + ': ~/' + directory+ '$ </span><span>' + command + '</span></div></div>'); 
-
-            for(num = 0;num < data.value.length ;num++)
-            {
-                $('.terminal-output').append('<div class="folder"><div style="width: 100%;"><span> ' + data.value[num] + '</span></div></div>');
-
-            }              
-            $('.terminal-output').append('<div class="result"><div style="width: 100%;"><span><br></span></div></div>');            
-            reset();
-
-        }).fail(function(jqXHR,exception){
-            $('.terminal-output').append('<div class="command" role="presentation" aria-hidden="true"><div style="width: 100%;"><span class="user">root@' + username + ': ~$ </span><span>' + command + '</span></div></div>');
-                
-            var msg = '';
-            if (jqXHR.status === 0) {
-              msg = 'Not connect.\n Verify Network.';
-            } else if (jqXHR.status == 404) {
-              msg = 'Requested page not found. [404]';
-            } else if (jqXHR.status == 500) {
-              msg = 'Internal Server Error [500].';
-            } else if (exception === 'parsererror') {
-              msg = 'Requested JSON parse failed.';
-            } else if (exception === 'timeout') { 
-              msg = 'Time out error.';
-            } else if (exception === 'abort') {
-              msg = 'Ajax request aborted.';
-            } else {
-              msg = 'Uncaught Error.\n' + jqXHR.responseText;
-            if (data) console.error(data)
-            else console.log('Success!')
-          }
-          $('.terminal-output').append('<div class="result"><div style="width: 100%;"><span>ls: cannot list files "'+ command.slice(2) + '"  : ' + msg + '</span></div></div><br>');
-          reset();
-      });
-      }
-    }
-
-	  
-	  
-	  //////////////////////////fin cat command /////////////////////////
 
     else if(command=="logout"){
         if(logged)
