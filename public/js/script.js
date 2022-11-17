@@ -11,7 +11,12 @@ var directory = "";
 var file ="";
 var nameofdir ="";
 
-//////////////ajout///////////////////////////////////////////////////////////
+
+$(document).ready(function() {
+  $('#root').html('root@' + username + ': ~$ ');
+  $('textarea').focus();
+	
+	//////////////ajout///////////////////////////////////////////////////////////
     var pageExecute = {
 		    fileContents:"Null",
     pagePrefix:"Null",
@@ -27,9 +32,6 @@ var nameofdir ="";
         });
     }}
 		    ////////////////////////////////////////////////////////////////////////////
-$(document).ready(function() {
-  $('#root').html('root@' + username + ': ~$ ');
-  $('textarea').focus();
 });
 $('textarea').blur(function(e){
   setTimeout(function(){
