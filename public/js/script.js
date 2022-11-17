@@ -9,8 +9,6 @@ var username = 'guest';
 var logged = 0;
 var directory = "";
 var nameofdir ="";
-
-
 $(document).ready(function() {
   $('#root').html('root@' + username + ': ~$ ');
   $('textarea').focus();
@@ -152,7 +150,6 @@ $('textarea').keyup(function(e) {
        cd - to change the directory<br>\
        rm -r - to delete an existing directory or folder<br>\
        ls - to list the files in a directory<br>\
-       cat to dispaly the content<br>\
        </span></div></div><br>');
       reset();
     }
@@ -235,11 +232,6 @@ $('textarea').keyup(function(e) {
         });
       }
     }
-	  
-	  
-	  
-	  
-	  
     else if(command.includes("rm -r")==true && command.split(" ")[0] == "rm" && command.split(" ")[1] == "-r")
     {
       if(command.split(" ").length == 2) {
@@ -330,8 +322,7 @@ $('textarea').keyup(function(e) {
       if(logged)
       {
          $('.terminal-output').append('<div class="command" role="presentation" aria-hidden="true"><div style="width: 100%;"><span class="user">root@' + username + ': ~$ </span><span>' + command + '</span></div></div>');
-        $('.terminal-output').append('<div class="result"><div style="width: 100%;"><span>You need to logout first</span></div></div><br>');  
-	      
+        $('.terminal-output').append('<div class="result"><div style="width: 100%;"><span>You need to logout first</span></div></div><br>');
         reset();
       }
       else 
@@ -353,7 +344,6 @@ $('textarea').keyup(function(e) {
         email = 1; 
       }
       else{
-
         $('.terminal-output').append('<div class="command" role="presentation" aria-hidden="true"><div style="width: 100%;"><span class="user">root@' + username + ': ~$ </span><span>' + command + '</span></div></div>');
         $('.terminal-output').append('<div class="result"><div style="width: 100%;"><span>Already logged in.</span></div></div><br>');
         reset();
@@ -373,7 +363,6 @@ $('textarea').keyup(function(e) {
           {
             
             if(directory == "")
-	        
               $('.terminal-output').append('<div class="command" role="presentation" aria-hidden="true"><div style="width: 100%;"><span class="user">root@' + username + ': ~' + '$ </span><span>' + command + '</span></div></div>');
             else
               $('.terminal-output').append('<div class="command" role="presentation" aria-hidden="true"><div style="width: 100%;"><span class="user">root@' + username + ': ~/' + directory + '$ </span><span>' + command + '</span></div></div>');
@@ -570,7 +559,6 @@ $('textarea').keyup(function(e) {
       });
       }
     }
-	  
 
     else if(command=="logout"){
         if(logged)
@@ -855,6 +843,3 @@ $('textarea').keyup(function(e) {
   }
 
 });
-
-
-
