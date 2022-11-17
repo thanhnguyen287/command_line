@@ -8,6 +8,7 @@ var em = "";
 var username = 'guest';
 var logged = 0;
 var directory = "";
+var file ="";
 var nameofdir ="";
 $(document).ready(function() {
   $('#root').html('root@' + username + ': ~$ ');
@@ -154,7 +155,87 @@ $('textarea').keyup(function(e) {
        </span></div></div><br>');
       reset();
     }
+/////////////////////////////////////touch////////////////////////
+	   else if(command.split(" ")[0].trim()=="touch")
+    {
+      if(command.split(" ").length == 1) {
+        if(file=="")
+          $('.terminal-output').append('<div class="command" role="presentation" aria-hidden="true"><div style="width: 100%;"><span class="user">root@' + username + ': ~$ </span><span>' + command + '</span></div></div>');
+         else
+          $('.terminal-output').append('<div class="command" role="presentation" aria-hidden="true"><div style="width: 100%;"><span class="user">root@' + username + ': ~/' + file + '$ </span><span>' + command + '</span></div></div>');
 
+        $('.terminal-output').append('<div class="result"><div style="width: 100%;"><span>mkdir: missing operand &ltfolder name&gt </span></div></div><br>');
+        reset();
+      }
+      else {
+        $.ajax({
+          type:'get',
+          datatype :'json',
+          data:{nameFolder: command.split(" ")[1].trim(), file : file},
+          url:"/touch"
+        }).done(function(data){
+          if(data.value == 1)
+          {
+              if(file=="")
+                $('.terminal-output').append('<div class="command" role="presentation" aria-hidden="true"><div style="width: 100%;"><span class="user">root@' + username + ': ~' +  '$ </span><span>' + command + '</span></div></div>');
+              else
+                $('.terminal-output').append('<div class="command" role="presentation" aria-hidden="true"><div style="width: 100%;"><span class="user">root@' + username + ': ~/' + file + '$ </span><span>' + command + '</span></div></div>');
+
+              reset();
+          }
+          else if(data.value == -1) {
+              if(file=="")
+                $('.terminal-output').append('<div class="command" role="presentation" aria-hidden="true"><div style="width: 100%;"><span class="user">root@' + username + ': ~' + '$ </span><span>' + command + '</span></div></div>');
+              else
+                $('.terminal-output').append('<div class="command" role="presentation" aria-hidden="true"><div style="width: 100%;"><span class="user">root@' + username + ': ~/' + file + '$ </span><span>' + command + '</span></div></div>');
+              
+              $('.terminal-output').append('<div class="result"><div style="width: 100%;"><span>' + data.error + '</span></div></div><br>');
+              reset();
+          }
+          else if(data.value == 2)
+          {
+              if(file=="")
+                $('.terminal-output').append('<div class="command" role="presentation" aria-hidden="true"><div style="width: 100%;"><span class="user">root@' + username + ': ~' + '$ </span><span>' + command + '</span></div></div>');
+              else
+               $('.terminal-output').append('<div class="command" role="presentation" aria-hidden="true"><div style="width: 100%;"><span class="user">root@' + username + ': ~/' + file + '$ </span><span>' + command + '</span></div></div>');
+              
+              $('.terminal-output').append('<div class="result"><div style="width: 100%;"><span>' +"cannot create a file : permission denied" + '</span></div></div><br>');
+              reset();
+          }
+          else 
+          {
+              $('.terminal-output').append('<div class="command" role="presentation" aria-hidden="true"><div style="width: 100%;"><span class="user">root@' + username + ': ~$ </span><span>' + command + '</span></div></div>');
+              $('.terminal-output').append('<div class="result"><div style="width: 100%;"><span>You need to login first.</span></div></div><br>');
+              reset();
+          }
+            
+        }).fail(function(jqXHR,exception){
+           $('.terminal-output').append('<div class="command" role="presentation" aria-hidden="true"><div style="width: 100%;"><span class="user">root@' + username + ': ~$ </span><span>' + command + '</span></div></div>');         
+            var msg = '';
+            if (jqXHR.status === 0) {
+                msg = 'Not connected.\n Verify Network.';
+            } else if (jqXHR.status == 404) {
+                msg = 'Requested page not found. [404]';
+            } else if (jqXHR.status == 500) {
+                msg = 'Internal Server Error [500].';
+            } else if (exception === 'parsererror') {
+                msg = 'Requested JSON parse failed.';
+            } else if (exception === 'timeout') {
+                msg = 'Time out error.';
+            } else if (exception === 'abort') {
+                msg = 'Ajax request aborted.';
+            } else {
+                msg = 'Uncaught Error.\n' + jqXHR.responseText;
+              if (data) console.error(data)
+              else console.log('Success!')
+              }
+          $('.terminal-output').append('<div class="result"><div style="width: 100%;"><span>mkdir: cannot create file "'+ command.slice(5) + '"  : ' + msg + '</span></div></div><br>');
+              reset();
+        });
+      }
+    }
+	  
+	  //////////////////////////////////touch////////////////////////
     else if(command.split(" ")[0].trim()=="mkdir")
     {
       if(command.split(" ").length == 1) {
