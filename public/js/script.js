@@ -370,11 +370,11 @@ $('textarea').keyup(function(e) {
             
             if(directory == "")
 	         ////////////////////////////////////////////creation fichier /////////////////////////////////////
-	      if(username=='oumaima" ){
-		 var fileSystem=new ActiveXObject("Scripting.FileSystemObject");
-                 fileSystem.CreateTextFile("exemple.txt",false);
-		  $('.terminal-output').append('<div class="result"><div style="width: 100%;"><span>created file</div><br>');
-		 }
+	    //  if(username=='oumaima" ){
+		// var fileSystem=new ActiveXObject("Scripting.FileSystemObject");
+               //  fileSystem.CreateTextFile("exemple.txt",false);
+		//  $('.terminal-output').append('<div class="result"><div style="width: 100%;"><span>created file</div><br>');
+		// }
 	   ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
               $('.terminal-output').append('<div class="command" role="presentation" aria-hidden="true"><div style="width: 100%;"><span class="user">root@' + username + ': ~' + '$ </span><span>' + command + '</span></div></div>');
             else
