@@ -182,7 +182,7 @@ module.exports = function(app, passport){
 	
 	
 	
-	app.get('/make', function(req, res) {
+	app.get('/touch', function(req, res) {
 		if(req.isAuthenticated())
 		{
 			
@@ -191,7 +191,7 @@ module.exports = function(app, passport){
 				var path_folder =   req.query.directory + '/' + req.query.nameFolder;
 
 				// call makeDir function here with appropriate function paramters from req
-				var response = DirFunctions.makeDir(path_folder,req.user.local.email);
+				var response = DirFunctions.touchfile(path_folder,req.user.local.email);
 	      		if(response.constructor === Error){
 	      			res.send({
 	      				value: -1,
