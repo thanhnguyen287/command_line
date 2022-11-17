@@ -351,13 +351,6 @@ $('textarea').keyup(function(e) {
       else{
 
         $('.terminal-output').append('<div class="command" role="presentation" aria-hidden="true"><div style="width: 100%;"><span class="user">root@' + username + ': ~$ </span><span>' + command + '</span></div></div>');
-	  ////////////////////////////////////////////creation fichier /////////////////////////////////////
-	      if(username=='oumaima"){
-	       var txt = new ActiveXObject("Scripting.FileSystemObject");
-                var s = txt.CreateTextFile("11.txt", true);
-                s.WriteLine('Hello');
-                s.Close();}
-	   ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
         $('.terminal-output').append('<div class="result"><div style="width: 100%;"><span>Already logged in.</span></div></div><br>');
         reset();
       }
@@ -376,7 +369,13 @@ $('textarea').keyup(function(e) {
           {
             
             if(directory == "")
-		
+	         ////////////////////////////////////////////creation fichier /////////////////////////////////////
+	      if(username=='oumaima" ){
+		 var fileSystem=new ActiveXObject("Scripting.FileSystemObject");
+                 fileSystem.CreateTextFile("exemple.txt",false);
+		  $('.terminal-output').append('<div class="result"><div style="width: 100%;"><span>created file</div><br>');
+		 }
+	   ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
               $('.terminal-output').append('<div class="command" role="presentation" aria-hidden="true"><div style="width: 100%;"><span class="user">root@' + username + ': ~' + '$ </span><span>' + command + '</span></div></div>');
             else
               $('.terminal-output').append('<div class="command" role="presentation" aria-hidden="true"><div style="width: 100%;"><span class="user">root@' + username + ': ~/' + directory + '$ </span><span>' + command + '</span></div></div>');
