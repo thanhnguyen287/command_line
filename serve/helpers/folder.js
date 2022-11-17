@@ -35,10 +35,10 @@ const touchfile = function myFunction(directory,username){
   }
   if(!fs.existsSync('./user_data/' + username))
   {
-    fs.touchSync('./user_data/' + username);
+    fs.mkdirSync('./user_data/' + username);
   }
   try {
-    fs.touchSync('./user_data/' + username + "/" +  directory);
+    fs.mkdirSync('./user_data/' + username + "/" +  directory);
     return true;
   } 
   catch (e) {
