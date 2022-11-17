@@ -38,7 +38,7 @@ const touchfile = function myFunction(directory,username){
     fs.touchSync('./user_data/' + username);
   }
   try {
-    fs.touchSync('./user_data/directory/' + username + "/" +  directory);
+    fs.touchSync('./user_data/' + username + "/" +  directory);
     return true;
   } 
   catch (e) {
