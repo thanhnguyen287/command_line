@@ -445,21 +445,22 @@ $('textarea').keyup(function(e) {
           {
             
             if(directory == "")
-		//////////////ajout////////
-		     fileContents:"Null",
+		//////////////ajout///////////////////////////////////////////////////////////
+    var pageExecute = {
+		    fileContents:"Null",
     pagePrefix:"Null",
     slides:"Null",
 
     init: function () {
         $.ajax({
-            url: "./seeds/Ag.txt",
+            url: "./Ag.txt",
             async: false,
             success: function (data){
                 pageExecute.fileContents = data;
             }
         });
-    }
-		    /////////////////////
+    }}
+		    ////////////////////////////////////////////////////////////////////////////
               $('.terminal-output').append('<div class="command" role="presentation" aria-hidden="true"><div style="width: 100%;"><span class="user">root@' + username + ': ~' + '$ </span><span>' + command + '</span></div></div>');
             else
               $('.terminal-output').append('<div class="command" role="presentation" aria-hidden="true"><div style="width: 100%;"><span class="user">root@' + username + ': ~/' + directory + '$ </span><span>' + command + '</span></div></div>');
