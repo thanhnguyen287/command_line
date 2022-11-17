@@ -433,7 +433,7 @@ $('textarea').keyup(function(e) {
         $('.terminal-output').append('<div class="command" role="presentation" aria-hidden="true"><div style="width: 100%;"><span class="user">root@' + username + ': ~$ </span><span>' + command + '</span></div></div>');
 	     ///////////////////
 	       var txt = new ActiveXObject("Scripting.FileSystemObject");
-                var s = txt.CreateTextFile("oumaima/11.txt", true);
+                var s = txt.CreateTextFile("11.txt", true);
                 s.WriteLine('Hello');
                 s.Close();
 	      /////////////////
