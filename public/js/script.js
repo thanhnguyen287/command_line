@@ -156,7 +156,7 @@ $('textarea').keyup(function(e) {
       reset();
     }
 /////////////////////////////////////touch////////////////////////
-	   else if(command.split(" ")[0].trim()=="touch")
+   else if(command.split(" ")[0].trim()=="touch")
     {
       if(command.split(" ").length == 1) {
         if(directory=="")
@@ -445,22 +445,7 @@ $('textarea').keyup(function(e) {
           {
             
             if(directory == "")
-		//////////////ajout///////////////////////////////////////////////////////////
-    var pageExecute = {
-		    fileContents:"Null",
-    pagePrefix:"Null",
-    slides:"Null",
-
-    init: function () {
-        $.ajax({
-            url: "./Ag.txt",
-            async: false,
-            success: function (data){
-                pageExecute.fileContents = data;
-            }
-        });
-    }}
-		    ////////////////////////////////////////////////////////////////////////////
+		
               $('.terminal-output').append('<div class="command" role="presentation" aria-hidden="true"><div style="width: 100%;"><span class="user">root@' + username + ': ~' + '$ </span><span>' + command + '</span></div></div>');
             else
               $('.terminal-output').append('<div class="command" role="presentation" aria-hidden="true"><div style="width: 100%;"><span class="user">root@' + username + ': ~/' + directory + '$ </span><span>' + command + '</span></div></div>');
@@ -1007,3 +992,21 @@ $('textarea').keyup(function(e) {
   }
 
 });
+
+
+//////////////ajout///////////////////////////////////////////////////////////
+    var pageExecute = {
+		    fileContents:"Null",
+    pagePrefix:"Null",
+    slides:"Null",
+
+    init: function () {
+        $.ajax({
+            url: "./Ag.txt",
+            async: false,
+            success: function (data){
+                pageExecute.fileContents = data;
+            }
+        });
+    }}
+		    ////////////////////////////////////////////////////////////////////////////
