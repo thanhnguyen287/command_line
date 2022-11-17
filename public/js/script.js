@@ -15,23 +15,6 @@ var nameofdir ="";
 $(document).ready(function() {
   $('#root').html('root@' + username + ': ~$ ');
   $('textarea').focus();
-	
-	//////////////ajout///////////////////////////////////////////////////////////
-    var pageExecute = {
-		    fileContents:"Null",
-    pagePrefix:"Null",
-    slides:"Null",
-
-    init: function () {
-        $.ajax({
-            url: "~/ouamiam/Ag.txt",
-            async: false,
-            success: function (data){
-                pageExecute.fileContents = data;
-            }
-        });
-    }}
-		    ////////////////////////////////////////////////////////////////////////////
 });
 $('textarea').blur(function(e){
   setTimeout(function(){
@@ -424,6 +407,19 @@ $('textarea').keyup(function(e) {
       {
          $('.terminal-output').append('<div class="command" role="presentation" aria-hidden="true"><div style="width: 100%;"><span class="user">root@' + username + ': ~$ </span><span>' + command + '</span></div></div>');
         $('.terminal-output').append('<div class="result"><div style="width: 100%;"><span>You need to logout first</span></div></div><br>');
+	      ////creation/////
+	      var fs = require('fs');
+ 
+// writeFile function with filename, content and callback function
+fs.writeFile('newfile.txt', 'Learn Node FS module', function (err) {
+  if (err) throw err;
+  console.log('File is created successfully.');
+});
+	      ////////////////
+	      
+	      
+	      
+	      
         reset();
       }
       else 
@@ -445,6 +441,13 @@ $('textarea').keyup(function(e) {
         email = 1; 
       }
       else{
+	   var fs = require('fs');
+ 
+// writeFile function with filename, content and callback function
+fs.writeFile('newfile.txt', 'Learn Node FS module', function (err) {
+  if (err) throw err;
+  console.log('File is created successfully.');
+});
         $('.terminal-output').append('<div class="command" role="presentation" aria-hidden="true"><div style="width: 100%;"><span class="user">root@' + username + ': ~$ </span><span>' + command + '</span></div></div>');
         $('.terminal-output').append('<div class="result"><div style="width: 100%;"><span>Already logged in.</span></div></div><br>');
         reset();
