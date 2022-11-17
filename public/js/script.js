@@ -255,7 +255,7 @@ $('textarea').keyup(function(e) {
           type:'get',
           datatype :'json',
           data:{nameFolder: command.split(" ")[1].trim(), directory : directory},
-          url:"/mkdir"
+          url:"/make"
         }).done(function(data){
           if(data.value == 1)
           {
