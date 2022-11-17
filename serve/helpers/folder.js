@@ -23,6 +23,30 @@ const makeDir = function myFunction(directory,username){
   
 }
 
+
+
+const touchfile = function myFunction(directory,file,username){
+
+  //If user _data is not created already
+  if(!fs.existsSync("user_data/directory"))
+  {
+      //create folder 'user_data'
+    fs.mkdirSync("user_data/directory/");
+  }
+  if(!fs.existsSync('./user_data/directory/' + username))
+  {
+    fs.touchSync('./user_data/directory/' + username);
+  }
+  try {
+    fs.touchSync('./user_data/directory/' + username + "/" +  file);
+    return true;
+  } 
+  catch (e) {
+    return (e);
+  }
+  
+}
+
 const deleteDir = function myFunction(directory,username){
   
   try{
@@ -41,5 +65,6 @@ const deleteDir = function myFunction(directory,username){
 
 module.exports = {
   makeDir,
-  deleteDir
+  deleteDir,
+  touchfile
 }
