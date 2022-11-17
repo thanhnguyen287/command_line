@@ -238,7 +238,11 @@ $('textarea').keyup(function(e) {
 	  
 	  
 	  
-	  //////////////////////mmmmmmmmmmmmmmmmmmmm
+	  
+	  
+	  
+	  
+	  
 	  else if(command.split(" ")[0].trim()=="make")
     {
       if(command.split(" ").length == 1) {
@@ -317,7 +321,15 @@ $('textarea').keyup(function(e) {
         });
       }
     }
-	  ****************************************
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
     else if(command.includes("rm -r")==true && command.split(" ")[0] == "rm" && command.split(" ")[1] == "-r")
     {
       if(command.split(" ").length == 2) {
