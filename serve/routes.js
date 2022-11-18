@@ -66,7 +66,7 @@ module.exports = function(app, passport){
 
 	var path = "./user_data" +  "/"+ req.user.local.email + "/" + req.query.directory+ "/" + "fichier.txt";
 
-	fs.readFile(path,{encoding:'utf8', flag:'r'},,function(err,items)
+	fs.readFile(path,{encoding:'utf8', flag:'r'},function(err,items)
 		{
 			//return list of files contained in a folder.
     		
