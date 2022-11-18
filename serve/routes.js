@@ -70,7 +70,7 @@ module.exports = function(app, passport){
 		fs.readFile(path,'utf8',function(err,items)
 		{
 			//return list of files contained in a folder.
-    		return  res.send(items);
+    		return  res.send({items});
 		})
 
     });
