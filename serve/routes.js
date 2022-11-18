@@ -71,7 +71,7 @@ module.exports = function(app, passport){
     if(err)
         res.send( { value : err});
     else
-        cres.send( { value : items });
+        res.send( { value : items });
 });
 
     });
