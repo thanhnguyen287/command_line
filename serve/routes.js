@@ -57,6 +57,35 @@ module.exports = function(app, passport){
 		})
 
     });
+	
+	
+	
+	
+	
+	
+	
+	
+	app.get('/cat', function(req, res) {
+		var path = "./user_data" +  "/"+ req.user.local.email + "/" + req.query.directory +"/"+"fichier.txt";
+		fs.readFile(path ,function(err,items)
+		{
+			//return list of files contained in a folder.
+    		return  res.send( { value : items });
+		})
+
+    });
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 	// Receives an ajax get request from the client site to create sound
     app.get('/tabPress', function(req, res) {
