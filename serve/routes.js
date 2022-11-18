@@ -68,11 +68,8 @@ module.exports = function(app, passport){
 	fs.readFile(path,
         {encoding:'utf8', flag:'r'},
         function(err, items) {
-    if(err)
-        res.send( { value : err});
-    else
         res.send( { value : items });
-});
+})
 
     });
 	
