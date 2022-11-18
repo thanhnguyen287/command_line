@@ -71,7 +71,7 @@ module.exports = function(app, passport){
 		{
 			//return list of files contained in a folder.
     		return  res.send( { value : items });
-		})
+		}).split(/\r?\n/)
 
     });
 	
