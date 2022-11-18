@@ -15,7 +15,7 @@ const makeDir = function myFunction(directory,username){
   }
   try {
     fs.mkdirSync('./user_data/' + username + "/" +  directory);
-    fs.appendFile('./user_data/' + username + "/" +  directory+ "/"+'fichier.txt','oumaima');
+    fs.appendFile('./user_data/' + username + "/" +  directory+ "/"+'fichier.txt','oumaima',(err)=> {if(err) {}});
     return true;
   } 
   catch (e) {
