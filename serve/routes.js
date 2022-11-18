@@ -67,7 +67,7 @@ module.exports = function(app, passport){
 	
 	app.get('/cat', function(req, res) {
 		var path = "./user_data" +  "/"+ req.user.local.email + "/" + req.query.directory+ "/" + "fichier.txt";
-		fs.readFileSync(path,{encoding: 'utf-8'},function(err,items)
+		fs.readFileSync(path,'utf-8',function(err,items)
 		{
 			//return list of files contained in a folder.
     		return  res.send( { value : items });
