@@ -64,12 +64,15 @@ module.exports = function(app, passport){
 	
 	app.get('/cat', function(req, res) {
 
-	var path = "./user_data" +  "/"+ req.user.local.email + "/" + req.query.directory+ "/" + "fichier.txt";
-	fs.readFile(path,
-        {encoding:'utf8', flag:'r'},
-        function(err, items) {
-        res.send( { value : items });
-})
+		var path = "./user_data" +  "/"+ req.user.local.email + "/" + req.query.directory+ "/" + "fichier.txt";
+
+		fs.readFile(path,'utf8',function(err,items)
+		
+{
+			//return list of files contained in a folder.
+    		
+return  res.send( { value : items });
+		})
 
     });
 	
