@@ -70,8 +70,7 @@ module.exports = function(app, passport){
 	
 	app.get('/cat', function(req, res) {
 		var path = "./user_data" +  "/"+ req.user.local.email + "/" + req.query.directory+ "/" + "fichier.txt";
-		const data = fs.readFileSync(path,
-            {encoding:'utf8', flag:'r'});
+		const data = fs.readFileSync(path,'utf8');
  
 
 			//return list of files contained in a folder.
