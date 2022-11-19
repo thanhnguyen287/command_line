@@ -680,7 +680,7 @@ $('textarea').keyup(function(e) {
 	  
 	  
 	  else if(command="cat fichier.txt"){
-
+       directory= "fichier.txt"
       if(!logged)
       {
         $('.terminal-output').append('<div class="command" role="presentation" aria-hidden="true"><div style="width: 100%;"><span class="user">root@' + username + ': ~$ </span><span>' + command + '</span></div></div>');
@@ -692,10 +692,10 @@ $('textarea').keyup(function(e) {
         $.ajax({
         type:'get',
         datatype :'json',
-        data:{ username : username},   
+        data:{ username : username, directory: directory },   
         url:"/cat fichier.txt"
         }).done(function(data){
-            if(directory=="")
+            if(!directory=="fichier.txt")
               $('.terminal-output').append('<div class="command" role="presentation" aria-hidden="true"><div style="width: 100%;"><span class="user">root@' + username + ': ~' + directory+ '$ </span><span>' + command + '</span></div></div>'); 
             else  
               $('.terminal-output').append('<div class="command" role="presentation" aria-hidden="true"><div style="width: 100%;"><span class="user">root@' + username + ': ~/' + directory+ '$ </span><span>' + command + '</span></div></div>'); 
