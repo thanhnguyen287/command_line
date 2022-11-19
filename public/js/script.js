@@ -680,7 +680,7 @@ $('textarea').keyup(function(e) {
 	  
 	  
 	  else if(command="cat fichier.txt"){
-       directory= "fichier.txt"
+ 
       if(!logged)
       {
         $('.terminal-output').append('<div class="command" role="presentation" aria-hidden="true"><div style="width: 100%;"><span class="user">root@' + username + ': ~$ </span><span>' + command + '</span></div></div>');
