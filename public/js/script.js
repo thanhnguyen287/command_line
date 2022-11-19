@@ -588,16 +588,17 @@ $('textarea').keyup(function(e) {
 	  
 	  
 	  else if(command="cat"){
-      var command2 = command + "fichier.txt";
+      
       if(!logged)
       {
-	      
+	 var command2 = command + " fichier.txt";     
         $('.terminal-output').append('<div class="command" role="presentation" aria-hidden="true"><div style="width: 100%;"><span class="user">root@' + username + ': ~$ </span><span>' + command2 + '</span></div></div>');
         $('.terminal-output').append('<div class="result"><div style="width: 100%;"><span>You need to login first</span></div></div><br>');
         reset();
       }
       else 
-      {  
+      { 
+	command2 = command + " fichier.txt";
         $.ajax({
         type:'get',
         datatype :'json',
