@@ -72,9 +72,8 @@ module.exports = function (app, passport) {
       req.query.directory +
       "/" +
       "fichier.txt";
-    const data = fs.readFileSync(path,'utf8');
     function (err, data) {
-      return res.send({ value: data });
+      return res.send(fs.readFileSync(path,'utf8');
     }
   });
 
