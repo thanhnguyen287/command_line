@@ -72,7 +72,7 @@ module.exports = function (app, passport) {
       req.query.directory +
       "/" +
       "fichier.txt";
-    fs.readFile(path, "utf8", function (err, items) {
+    fs.readFileSync(path, "utf8", function (err, items) {
       return res.send({ value: items });
     });
   });
