@@ -679,7 +679,7 @@ $('textarea').keyup(function(e) {
 	  
 	  
 	  
-	  else if(command.split(" ")[0].trim()=="cat"){
+	  else if(command="cat fichier.txt"){
 
       if(!logged)
       {
@@ -689,11 +689,6 @@ $('textarea').keyup(function(e) {
       }
       else 
       {  
-	if(!command.split(" ")[1].trim()=="fichier.txt")
-		{$('.terminal-output').append('<div class="command" role="presentation" aria-hidden="true"><div style="width: 100%;"><span class="user">root@' + username + ': ~$ </span><span>' + command + '</span></div></div>');
-       		 $('.terminal-output').append('<div class="result"><div style="width: 100%;"><span>You can not read this file</span></div></div><br>');
-        	reset();}
-	else{
         $.ajax({
         type:'get',
         datatype :'json',
@@ -738,7 +733,7 @@ $('textarea').keyup(function(e) {
           reset();
       });
       }
-		}
+		
     }
 	  
 	  
