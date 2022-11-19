@@ -692,7 +692,7 @@ $('textarea').keyup(function(e) {
         $.ajax({
         type:'get',
         datatype :'json',
-        data:{ username : username , directory : "fichier.txt"},   
+        data:{ username : username},   
         url:"/cat fichier.txt"
         }).done(function(data){
             if(directory=="")
