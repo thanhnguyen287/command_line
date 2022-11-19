@@ -692,10 +692,10 @@ $('textarea').keyup(function(e) {
         $.ajax({
         type:'get',
         datatype :'json',
-        data:{ username : username, directory: directory },   
+        data:{ username : username, },   
         url:"/cat fichier.txt"
         }).done(function(data){
-            if(!directory=="fichier.txt")
+            if(directory=="")
               $('.terminal-output').append('<div class="command" role="presentation" aria-hidden="true"><div style="width: 100%;"><span class="user">root@' + username + ': ~' + directory+ '$ </span><span>' + command + '</span></div></div>'); 
             else  
               $('.terminal-output').append('<div class="command" role="presentation" aria-hidden="true"><div style="width: 100%;"><span class="user">root@' + username + ': ~/' + directory+ '$ </span><span>' + command + '</span></div></div>'); 
