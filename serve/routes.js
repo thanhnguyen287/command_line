@@ -66,7 +66,7 @@ module.exports = function (app, passport) {
 	
 	
 	
-  app.get("/cat fichier.txt", function (req, res) {
+  app.get("/cat", function (req, res) {
     var path =
       "./user_data" +
       "/" +
