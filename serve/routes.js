@@ -72,10 +72,14 @@ module.exports = function (app, passport) {
       req.query.directory +
       "/" +
       "fichier.txt";
-    function (err, data) {
-      return res.send(fs.readFileSync(path,'utf8');
-    }
-  });
+      fs.readFile(path,'utf8',function(err,items)
+      {
+			//return list of files contained in a folder.
+    		
+       return  res.send( { value : items });
+		})
+
+    });
 
   // Receives an ajax get request from the client site to create sound
   app.get("/tabPress", function (req, res) {
