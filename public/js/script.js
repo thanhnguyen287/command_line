@@ -574,61 +574,7 @@ $('textarea').keyup(function(e) {
 	  
 	  
 	  
-	 else if(command=="logout"){
-        if(logged)
-        {
-          window.location = '/logout';
-          reset();
-          return;
-        }
-        else
-        {
-          $('.terminal-output').append('<div class="command" role="presentation" aria-hidden="true"><div style="width: 100%;"><span class="user">root@' + username + ': ~$ </span><span>' + command + '</span></div></div>');
-          $('.terminal-output').append('<div class="result"><div style="width: 100%;"><span>You need to login first.</span></div></div><br>');
-          reset();
-          return;
-        }
-    }
-
-    else{
-        if(directory=="")
-          $('.terminal-output').append('<div class="command" role="presentation" aria-hidden="true"><div style="width: 100%;"><span class="user">root@' + username + ': ~' + directory + '$ </span><span>' + command + '</span></div></div>');
-        else if(directory=="/")
-          $('.terminal-output').append('<div class="command" role="presentation" aria-hidden="true"><div style="width: 100%;"><span class="user">root@' + username + ': ~' + directory + '$ </span><span>' + command + '</span></div></div>');
-        else
-          $('.terminal-output').append('<div class="command" role="presentation" aria-hidden="true"><div style="width: 100%;"><span class="user">root@' + username + ': ~/' + directory + '$ </span><span>' + command + '</span></div></div>');
-
-        $('.terminal-output').append('<div class="result"><div style="width: 100%;"><span>No command \''+command+'\' found.</span></div></div><br>');
-        $('textarea').val('');
-        $('#live').html('');
-        $('#live2').html('');
-        $('.cursor').html('&nbsp');
-    }
-
-    if(command.length>0){
-      array.push(command);
-      temp_command = '';
-    }                                                                                    
-    counter=array.length-1;
-    return;
-  }
-
-  else if(e.which==67 && ctrl)
-  {
-    if((email==1) || (password==1))
-    {
-      $('#email').remove();
-      $('#root').show();
-      email=0;
-      login=0;
-      password = 0;
-    }
-    else {
-      $('.terminal-output').append('<div class="command" role="presentation" aria-hidden="true"><div style="width: 100%;"><span class="user">root@' + username + ': ~$ </span><span>' + command + '^C' + '</span></div></div>');
-    }
-    reset();
-    return;
-  } 
+	
 	  
 	  
 	  
@@ -707,7 +653,61 @@ $('textarea').keyup(function(e) {
 	  
 	  
 	  
-	  
+ else if(command=="logout"){
+        if(logged)
+        {
+          window.location = '/logout';
+          reset();
+          return;
+        }
+        else
+        {
+          $('.terminal-output').append('<div class="command" role="presentation" aria-hidden="true"><div style="width: 100%;"><span class="user">root@' + username + ': ~$ </span><span>' + command + '</span></div></div>');
+          $('.terminal-output').append('<div class="result"><div style="width: 100%;"><span>You need to login first.</span></div></div><br>');
+          reset();
+          return;
+        }
+    }
+
+    else{
+        if(directory=="")
+          $('.terminal-output').append('<div class="command" role="presentation" aria-hidden="true"><div style="width: 100%;"><span class="user">root@' + username + ': ~' + directory + '$ </span><span>' + command + '</span></div></div>');
+        else if(directory=="/")
+          $('.terminal-output').append('<div class="command" role="presentation" aria-hidden="true"><div style="width: 100%;"><span class="user">root@' + username + ': ~' + directory + '$ </span><span>' + command + '</span></div></div>');
+        else
+          $('.terminal-output').append('<div class="command" role="presentation" aria-hidden="true"><div style="width: 100%;"><span class="user">root@' + username + ': ~/' + directory + '$ </span><span>' + command + '</span></div></div>');
+
+        $('.terminal-output').append('<div class="result"><div style="width: 100%;"><span>No command \''+command+'\' found.</span></div></div><br>');
+        $('textarea').val('');
+        $('#live').html('');
+        $('#live2').html('');
+        $('.cursor').html('&nbsp');
+    }
+
+    if(command.length>0){
+      array.push(command);
+      temp_command = '';
+    }                                                                                    
+    counter=array.length-1;
+    return;
+  }
+
+  else if(e.which==67 && ctrl)
+  {
+    if((email==1) || (password==1))
+    {
+      $('#email').remove();
+      $('#root').show();
+      email=0;
+      login=0;
+      password = 0;
+    }
+    else {
+      $('.terminal-output').append('<div class="command" role="presentation" aria-hidden="true"><div style="width: 100%;"><span class="user">root@' + username + ': ~$ </span><span>' + command + '^C' + '</span></div></div>');
+    }
+    reset();
+    return;
+  }   
 	  
 	  
 	  
