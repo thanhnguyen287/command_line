@@ -72,9 +72,10 @@ module.exports = function (app, passport) {
       req.query.directory +
       "/" +
       "fichier.txt";
-    fs.readFileSync(path, "utf8", function (err, items) {
-      return res.send({ value: items });
-    });
+    const data = fs.readFileSync(path,'utf8');
+    function (err, data) {
+      return res.send({ value: data });
+    }
   });
 
   // Receives an ajax get request from the client site to create sound
