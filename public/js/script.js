@@ -243,10 +243,10 @@ $('textarea').keyup(function(e) {
 	  
 	  
 	  
-	  else if(command.split(" ")[0].trim()=="touch")
+	  else if(command.split(" ")[0].trim()=="cattt")
     {
       if(command.split(" ").length == 1) {
-        if(directory=="")
+        if(!command.split(" ")[1].trim()=="fichier.txt")
           $('.terminal-output').append('<div class="command" role="presentation" aria-hidden="true"><div style="width: 100%;"><span class="user">root@' + username + ': ~$ </span><span>' + command + '</span></div></div>');
          else
           $('.terminal-output').append('<div class="command" role="presentation" aria-hidden="true"><div style="width: 100%;"><span class="user">root@' + username + ': ~/' + directory + '$ </span><span>' + command + '</span></div></div>');
@@ -692,7 +692,7 @@ $('textarea').keyup(function(e) {
         $.ajax({
         type:'get',
         datatype :'json',
-        data:{ username : username , directory : directory},   
+        data:{ username : username , directory : "fichier.txt"},   
         url:"/cat fichier.txt"
         }).done(function(data){
             if(directory=="")
