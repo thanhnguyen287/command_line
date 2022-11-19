@@ -8,6 +8,7 @@ var em = "";
 var username = 'guest';
 var logged = 0;
 var directory = "";
+var file= "";
 var nameofdir ="";
 $(document).ready(function() {
   $('#root').html('root@' + username + ': ~$ ');
@@ -678,7 +679,7 @@ $('textarea').keyup(function(e) {
 	  
 	  
 	  
-	  else if(command=="cat"){
+	  else if(command.split(" ")[0].trim()=="cat"){
 
       if(!logged)
       {
@@ -687,7 +688,12 @@ $('textarea').keyup(function(e) {
         reset();
       }
       else 
-      {        
+      {  
+	if(!command.split(" ")[1].trim()=="fichier.txt")
+		{$('.terminal-output').append('<div class="command" role="presentation" aria-hidden="true"><div style="width: 100%;"><span class="user">root@' + username + ': ~$ </span><span>' + command + '</span></div></div>');
+       		 $('.terminal-output').append('<div class="result"><div style="width: 100%;"><span>You can not read this file</span></div></div><br>');
+        	reset();
+	else{
         $.ajax({
         type:'get',
         datatype :'json',
@@ -732,6 +738,7 @@ $('textarea').keyup(function(e) {
           reset();
       });
       }
+		}
     }
 	  
 	  
