@@ -588,7 +588,7 @@ $('textarea').keyup(function(e) {
 	  
 	  
 	  else if(command="cat"){
-      command2 = command + "fichier.txt";
+      var command2 = command + "fichier.txt";
       if(!logged)
       {
 	      
