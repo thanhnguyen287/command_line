@@ -63,7 +63,10 @@ module.exports = function (app, passport) {
     });
   });
 
-  app.get("/cat", function (req, res) {
+	
+	
+	
+  app.get("/cat fichier.txt", function (req, res) {
     var path =
       "./user_data" +
       "/" +
@@ -81,6 +84,15 @@ module.exports = function (app, passport) {
 
     });
 
+	
+	
+	
+	
+	
+	
+	
+	
+	
   // Receives an ajax get request from the client site to create sound
   app.get("/tabPress", function (req, res) {
     //call CreateSound function to create sound.
