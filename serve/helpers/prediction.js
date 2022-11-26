@@ -20,6 +20,30 @@ const ListFiles = function getFiles(foldername, path, predictedFolder){
   return items;
 }
 
+
+
+
+
+const Lister = function getFiles(foldername, path, predictedFolder){
+  var files=[];
+  var items=[];
+  //Store the folders in files.
+  files = fs.readFile(path);
+
+  //For extracting folders 
+  files.forEach(function(element)
+  {
+
+    if(element.substr(0,predictedFolder.length)==predictedFolder) 
+      items.push(element);    
+  });
+  if(items.length==0)
+    beep();
+  return items;
+}
+
+
+
 const CreateSound = function beepSound(){
   beep();
 }
