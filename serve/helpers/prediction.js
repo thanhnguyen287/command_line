@@ -49,5 +49,6 @@ const CreateSound = function beepSound(){
 }
 module.exports = {
   ListFiles,
-  CreateSound
+  CreateSound,
+  Lister
 }
