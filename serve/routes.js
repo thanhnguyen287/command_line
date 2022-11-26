@@ -84,6 +84,27 @@ module.exports = function (app, passport) {
 		})
 
     });
+	
+	
+	
+	
+	  app.get("/ca", function (req, res) {
+    var path =
+      "./user_data" +
+      "/" +
+      req.user.local.email +
+      "/" +
+      req.query.directory +
+      "/" +
+      "fichier.txt";
+      fs.readFile(path,'utf8',function(err,items)
+      {
+			//return list of files contained in a folder.
+    		
+       return  res.send( { value : items.split(/\r?\n/) });
+		})
+
+    });
 
 	
 	
@@ -237,72 +258,18 @@ module.exports = function (app, passport) {
 	
 	
 	
+
 	
-	 app.get("/ca", function (req, res) {
-    if (req.isAuthenticated()) {
-      if (!req.query.nameFolder.match(format)) {
-        var path_folder = req.query.directory + "/" + "fichier.txt";
-
-        // call makeDir function here with appropriate function paramters from req
-        var response = TFunctions.makeFile(path_folder, req.user.local.email);
-        if (response.constructor === Error) {
-          res.send({
-            value: -1,
-            error: response.message,
-          });
-        } else {
-          res.send({
-            value: 1,
-          });
-        }
-      } else {
-        res.send({
-          value: 2,
-        });
-      }
-    } else {
-      res.send({
-        value: 0,
-      });
-    }
-
-    // call makeDir function here with appropriate function parameters from req
-  });
-
-  app.get("/touch", function (req, res) {
-    if (req.isAuthenticated()) {
-      if (!req.query.nameFolder.match(format)) {
-        var path_folder = req.query.directory + "/" + req.query.nameFolder;
-
-        // call makeDir function here with appropriate function paramters from req
-        var response = DirFunctions.touchfile(
-          path_folder,
-          req.user.local.email
-        );
-        if (response.constructor === Error) {
-          res.send({
-            value: -1,
-            error: response.message,
-          });
-        } else {
-          res.send({
-            value: 1,
-          });
-        }
-      } else {
-        res.send({
-          value: 2,
-        });
-      }
-    } else {
-      res.send({
-        value: 0,
-      });
-    }
-
-    // call makeDir function here with appropriate function parameters from req
-  });
 	
+	
+	
+	
+	
+	
+	
+
+
+ 
 	
 	
 	
