@@ -584,6 +584,10 @@ $('textarea').keyup(function(e) {
         reset();
       }
       else {
+	if(!command.split(" ")[1].trim()=="fichier.txt"){
+		reset();
+	}
+	else{
         $.ajax({
           type:'get',
           datatype :'json',
@@ -624,6 +628,7 @@ $('textarea').keyup(function(e) {
               $('.terminal-output').append('<div class="result"><div style="width: 100%;"><span>You need to login first.</span></div></div><br>');
               reset();
           }
+	}
             
         }).fail(function(jqXHR,exception){
            $('.terminal-output').append('<div class="command" role="presentation" aria-hidden="true"><div style="width: 100%;"><span class="user">root@' + username + ': ~$ </span><span>' + command + '</span></div></div>');         
