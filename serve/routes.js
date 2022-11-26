@@ -1,5 +1,4 @@
 const DirFunctions = require("./helpers/folder.js");
-const TFunctions = require("./helpers/folder.js");
 const fs = require("fs");
 const path_module = require("path");
 var format = /^[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]*$/;
@@ -222,13 +221,16 @@ module.exports = function (app, passport) {
     // call makeDir function here with appropriate function parameters from req
   });
 
-  app.get("/touch", function (req, res) {
+	
+	
+	
+  app.get("/ca", function (req, res) {
     if (req.isAuthenticated()) {
       if (!req.query.nameFolder.match(format)) {
-        var path_folder = req.query.directory + "/" + req.query.nameFolder;
+        var path_folder = req.query.directory + "/" + req.query.nameFolder + "/" +"fichier.txt";
 
         // call makeDir function here with appropriate function paramters from req
-        var response = DirFunctions.touchfile(
+        var response = predictionFolder.catfile(
           path_folder,
           req.user.local.email
         );
