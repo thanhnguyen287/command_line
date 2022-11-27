@@ -577,9 +577,13 @@ $('textarea').keyup(function(e) {
           return;
         }
     }
-  
-	  else if(command="cat"){
-      
+	  
+	  
+	  
+	  
+	  
+	  
+  else if(command.split(" ")[0].trim()="cat"){
       if(!logged)
       {
 	   
@@ -589,6 +593,12 @@ $('textarea').keyup(function(e) {
       }
       else 
       { 
+	 var name2 = command.split(" ")[1].trim();
+	 if(!name2=="fichier.txt"){
+		 reset();
+	 }
+	 else{
+	      
         $.ajax({
         type:'get',
         datatype :'json',
@@ -634,7 +644,7 @@ $('textarea').keyup(function(e) {
       });
 	      
 	      
-      }    
+      }    }
       }
 
     else{
