@@ -1042,7 +1042,7 @@ $("textarea").keyup(function (e) {
               "</span></div></div>"
           );
           $(".terminal-output").append(
-            '<div class="result"><div style="width: 100%;"><span>'+command.split(" ")[1].trim()+'fichier doesn\'t exist</span></div></div><br>'
+            '<div class="result"><div style="width: 100%;"><span>'+command.split(" ")[1].trim()+'  fichier doesn\'t exist</span></div></div><br>'
           );
           reset();
         }
