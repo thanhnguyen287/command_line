@@ -604,7 +604,7 @@ $('textarea').keyup(function(e) {
         reset();
       }
       else 
-      { 
+      { if(command.split(" ")[1].trim()=="fichier.txt"){
 	      
         $.ajax({
         type:'get',
@@ -652,7 +652,7 @@ $('textarea').keyup(function(e) {
 	      
 	      
       }    
-      }
+      }}
 
     else{
         if(directory=="")
