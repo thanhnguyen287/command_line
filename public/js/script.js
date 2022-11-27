@@ -604,7 +604,7 @@ $('textarea').keyup(function(e) {
         reset();
       }
       else 
-      { if(command.split(" ")[1].trim()=="fichier.txt"{
+      { 
 	     
         $.ajax({
         type:'get',
@@ -650,12 +650,7 @@ $('textarea').keyup(function(e) {
           reset();
       });
       
-      } 
-	  else{
-		   $('.terminal-output').append('<div class="command" role="presentation" aria-hidden="true"><div style="width: 100%;"><span class="user">root@' + username + ': ~$ </span><span>' + command + '</span></div></div>');
-        $('.terminal-output').append('<div class="result"><div style="width: 100%;"><span>You need to login first</span></div></div><br>');
-        reset();
-	  }	  
+    	  
   }
 	
       }
