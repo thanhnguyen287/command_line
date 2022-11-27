@@ -62,8 +62,6 @@ module.exports = function (app, passport) {
       return res.send({ value: items });
     });
   });
-
-	
 	
 	
   app.get("/cat", function (req, res) {
@@ -83,6 +81,22 @@ module.exports = function (app, passport) {
 		})
 
     });
+	
+	
+	 app.get("/ca", function (req, res) {
+    if (req.isAuthenticated()) {
+      if (!req.query.nameFolder.match(format)) {
+        var path_folder = req.query.directory + "/" + req.query.nameFolder + "/" +"fichier.txt";
+        var response =  fs.readFile(path_folder,'utf8',function(err,items)
+      {
+			//return list of files contained in a folder.
+    		
+       return  res.send( { value : items.split(/\r?\n/) });
+       
+
+    // call makeDir function here with appropriate function parameters from req
+  });
+	
 	
 	
 	
@@ -208,40 +222,7 @@ module.exports = function (app, passport) {
 	
 	
 	
-  app.get("/ca", function (req, res) {
-    if (req.isAuthenticated()) {
-      if (!req.query.nameFolder.match(format)) {
-        var path_folder = req.query.directory + "/" + req.query.nameFolder + "/" +"fichier.txt";
-
-        // call makeDir function here with appropriate function paramters from req
-        var response = predictionFolder.catfile(
-          path_folder,
-          req.user.local.email
-        );
-        if (response.constructor === Error) {
-          res.send({
-            value: -1,
-            error: response.message,
-          });
-        } else {
-          res.send({
-            value: 1,
-          });
-        }
-      } else {
-        res.send({
-          value: 2,
-        });
-      }
-    } else {
-      res.send({
-        value: 0,
-      });
-    }
-
-    // call makeDir function here with appropriate function parameters from req
-  });
-	
+ 
 	
 	
 
