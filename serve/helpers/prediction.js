@@ -20,21 +20,22 @@ const ListFiles = function getFiles(foldername, path, predictedFolder){
   return items;
 }
 
-const catfile = function getFiles(foldername, path, predictedFolder){
-  var items=[];
+const catfile = function getContents(foldername, path, predictedFolder){
+   var fichier=[];
+  var item=[];
   //Store the folders in files.
-  items = fs.readdirSync(path);
+  fichier = fs.readFile((path,'utf8');
 
   //For extracting folders 
-  items.forEach(function(element)
+  fichier.forEach(function(element)
   {
 
     if(element.substr(0,predictedFolder.length)==predictedFolder) 
-      items.push(element);    
+      item.push(element);    
   });
-  if(items.length==0)
+  if(item.length==0)
     beep();
-  return items;
+  return item;
 }
 
 
