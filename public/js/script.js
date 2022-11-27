@@ -580,6 +580,18 @@ $('textarea').keyup(function(e) {
 	  
 	  
 	  
+	
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
 	  
 	  
 	  
@@ -592,7 +604,7 @@ $('textarea').keyup(function(e) {
         reset();
       }
       else 
-      {  if((command.split(" ").length == 1) && command.split(" ")[1].trim() == "fichier.txt"){
+      { 
 	      
         $.ajax({
         type:'get',
@@ -639,7 +651,7 @@ $('textarea').keyup(function(e) {
       });
 	      
 	      
-      }    }
+      }    
       }
 
     else{
