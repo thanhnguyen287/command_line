@@ -62,6 +62,18 @@ module.exports = function (app, passport) {
       return res.send({ value: items });
     });
   });
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
   app.get("/cat", function (req, res) {
@@ -83,26 +95,6 @@ module.exports = function (app, passport) {
     });
 	
 	
-	 app.get("/ca", function (req, res) {
-    if (req.isAuthenticated()) {
-      if (!req.query.nameFolder.match(format)) {
-        var path_folder = req.query.directory + "/" + req.query.nameFolder + "/" +"fichier.txt";
-        var response =  fs.readFile(path_folder,'utf8',function(err,items)
-      {
-			//return list of files contained in a folder.
-    		
-       return  res.send( { value : items.split(/\r?\n/) });
-       
-
-    // call makeDir function here with appropriate function parameters from req
-  });
-	
-	
-	
-	
-	
-	 
-
 	
 	
 	
@@ -217,30 +209,7 @@ module.exports = function (app, passport) {
     }
 
     // call makeDir function here with appropriate function parameters from req
-  });
-
-	
-	
-	
- 
-	
-	
-
-	
-	
-	
-	
-	
-	
-	
-	
-
-
- 
-	
-	
-	
-	
+  });	
 
   app.get("/cd", function (req, res) {
     //name of directory.
