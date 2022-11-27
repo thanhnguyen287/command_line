@@ -636,9 +636,8 @@ $('textarea').keyup(function(e) {
       });
 	      
 	      
-      }//end else
-	//end cat      
-      }	  
+      }    
+      }	}  
  else if(command=="logout"){
         if(logged)
         {
