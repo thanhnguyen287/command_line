@@ -595,7 +595,7 @@ $('textarea').keyup(function(e) {
 	  
 	  
 	  
-  else if(command.split(" ")[0].trim()="cat"){
+  else if(command="cat"){
       if(!logged)
       {
 	   
