@@ -595,7 +595,7 @@ $('textarea').keyup(function(e) {
 	  
 	  
 	  
-  else if(command="cat fichier.txt"){
+  else if(command.split(" ")[0].trim()=="cat"){
       if(!logged)
       {
 	   
@@ -605,7 +605,7 @@ $('textarea').keyup(function(e) {
       }
       else 
       { 
-	      
+	     
         $.ajax({
         type:'get',
         datatype :'json',
