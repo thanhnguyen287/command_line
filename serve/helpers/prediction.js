@@ -20,23 +20,7 @@ const ListFiles = function getFiles(foldername, path, predictedFolder){
   return items;
 }
 
-const catfile = function getContents(foldername, path, predictedFolder){
-   var fichier=[];
-  var item=[];
-  //Store the folders in files.
-  fichier = fs.readFile((path,'utf8');
 
-  //For extracting folders 
-  fichier.forEach(function(element)
-  {
-
-    if(element.substr(0,predictedFolder.length)==predictedFolder) 
-      item.push(element);    
-  });
-  if(item.length==0)
-    beep();
-  return item;
-}
 
 
 
@@ -47,6 +31,5 @@ const CreateSound = function beepSound(){
 }
 module.exports = {
   ListFiles,
-  CreateSound,
-  catfile
+  CreateSound
 }
