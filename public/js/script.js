@@ -637,7 +637,7 @@ $('textarea').keyup(function(e) {
 	      
 	      
       }    
-      }	}  
+      }	  
  else if(command=="logout"){
         if(logged)
         {
