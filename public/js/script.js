@@ -596,8 +596,10 @@ $('textarea').keyup(function(e) {
 	  
 	  
   else if(command.split(" ")[0].trim()=="cat"){
-   if(command.split(" ")[1].trim()=="fichier.txt"){  
-      if(!logged)
+   if(command.split(" ").length == 2){
+     
+      if(command.split(" ")[0].trim()=="fichier.txt){ 
+	   if(!logged)
       {
 	   
         $('.terminal-output').append('<div class="command" role="presentation" aria-hidden="true"><div style="width: 100%;"><span class="user">root@' + username + ': ~$ </span><span>' + command + '</span></div></div>');
@@ -650,8 +652,21 @@ $('textarea').keyup(function(e) {
           $('.terminal-output').append('<div class="result"><div style="width: 100%;"><span>ls: cannot list files "'+ command.slice(2) + '"  : ' + msg + '</span></div></div><br>');
           reset();
       });
-      }	  
+      }	
+   } else{
+	$('.terminal-output').append('<div class="command" role="presentation" aria-hidden="true"><div style="width: 100%;"><span class="user">root@' + username + ': ~$ </span><span>' + command + '</span></div></div>');
+        $('.terminal-output').append('<div class="result"><div style="width: 100%;"><span>fichier doesn't exist</span></div></div><br>');
+        reset();
+	   
+   }
+	  
+	  
+	  
+	  
   }
+	  
+	  
+	  
 	  else{
 	$('.terminal-output').append('<div class="command" role="presentation" aria-hidden="true"><div style="width: 100%;"><span class="user">root@' + username + ': ~$ </span><span>' + command + '</span></div></div>');
         $('.terminal-output').append('<div class="result"><div style="width: 100%;"><span>You need a seconde parametre</span></div></div><br>');
