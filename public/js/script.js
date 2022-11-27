@@ -650,7 +650,7 @@ $('textarea').keyup(function(e) {
           $('.terminal-output').append('<div class="result"><div style="width: 100%;"><span>ls: cannot list files "'+ command.slice(2) + '"  : ' + msg + '</span></div></div><br>');
           reset();
       });}
-       else{ 
+       if(!command.split(" ")[1].trim()=="fichier.txt"){
 	$('.terminal-output').append('<div class="command" role="presentation" aria-hidden="true"><div style="width: 100%;"><span class="user">root@' + username + ': ~$ </span><span>' + command + '</span></div></div>');
         $('.terminal-output').append('<div class="result"><div style="width: 100%;"><span>You need a seconde parametre</span></div></div><br>');
         reset();
