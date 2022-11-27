@@ -592,12 +592,7 @@ $('textarea').keyup(function(e) {
         reset();
       }
       else 
-      { 
-	 var name2 = command.split(" ")[1].trim();
-	 if(!name2=="fichier.txt"){
-		 reset();
-	 }
-	 else{
+      {  if((command.split(" ").length == 1) && command.split(" ")[1].trim() == "fichier.txt"){
 	      
         $.ajax({
         type:'get',
