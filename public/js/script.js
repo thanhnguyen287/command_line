@@ -596,6 +596,7 @@ $('textarea').keyup(function(e) {
 	  
 	  
   else if(command.split(" ")[0].trim()=="cat"){
+	  
       if(!logged)
       {
 	   
@@ -604,7 +605,7 @@ $('textarea').keyup(function(e) {
         reset();
       }
       else 
-      { 
+      { if(command.split(" ")[1].trim()=="fichier.txt"){
 	     
         $.ajax({
         type:'get',
@@ -648,7 +649,7 @@ $('textarea').keyup(function(e) {
           }
           $('.terminal-output').append('<div class="result"><div style="width: 100%;"><span>ls: cannot list files "'+ command.slice(2) + '"  : ' + msg + '</span></div></div><br>');
           reset();
-      });
+      });}
       
     	  
   }
