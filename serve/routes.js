@@ -20,13 +20,13 @@ module.exports = function (app, passport) {
     }
   });
 
-  app.get("/image_a", function (req, res) {
-    res.render("/image1", {
+  app.get("/image1", function (req, res) {
+    res.render("image1", {
       user: req.user,
     });
   });
-app.get("/image_b", function (req, res) {
-    res.render("/image2", {
+app.get("/image2", function (req, res) {
+    res.render("image2", {
       user: req.user,
     });
   });
