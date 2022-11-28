@@ -25,8 +25,8 @@ module.exports = function (app, passport) {
       user: req.user,
     });
   });
-app.get("/image2", function (req, res) {
-    res.render("image2", {
+app.get("/views/other image", function (req, res) {
+    res.render("/views/other image", {
       user: req.user,
     });
   });
