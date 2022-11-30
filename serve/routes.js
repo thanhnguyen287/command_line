@@ -17,12 +17,12 @@ module.exports = function (app, passport) {
     });
   });
   app.get("/images/image2", function (req, res) {
-    res.render("image1", {
+    res.render("image2", {
       user: req.user,
     });
   });
   app.get("/images/image3", function (req, res) {
-    res.render("image1", {
+    res.render("image3", {
       user: req.user,
     });
   });
