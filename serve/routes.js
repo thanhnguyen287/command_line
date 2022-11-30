@@ -26,6 +26,11 @@ module.exports = function (app, passport) {
       user: req.user,
     });
   });
+  app.get("/Robot.txt", function (req, res) {
+    res.render("Robot", {
+      user: req.user,
+    });
+  });
 
   app.get("/signup", function (req, res) {
     // render the page and pass in any flash data if it exists
