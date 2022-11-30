@@ -10,6 +10,23 @@ module.exports = function (app, passport) {
       user: req.user,
     });
   });
+
+  app.get("/images/image1", function (req, res) {
+    res.render("image1", {
+      user: req.user,
+    });
+  });
+  app.get("/images/image2", function (req, res) {
+    res.render("image1", {
+      user: req.user,
+    });
+  });
+  app.get("/images/image3", function (req, res) {
+    res.render("image1", {
+      user: req.user,
+    });
+  });
+
   app.get("/signup", function (req, res) {
     // render the page and pass in any flash data if it exists
     if (!req.isAuthenticated()) {
@@ -25,7 +42,7 @@ module.exports = function (app, passport) {
       user: req.user,
     });
   });
-	 app.get("/images", function (req, res) {
+  app.get("/images", function (req, res) {
     res.render("/image", {
       user: req.user,
     });
@@ -68,19 +85,6 @@ module.exports = function (app, passport) {
     });
   });
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
   app.get("/cat", function (req, res) {
     var path =
       "./user_data" +
@@ -90,25 +94,13 @@ module.exports = function (app, passport) {
       req.query.directory +
       "/" +
       "fichier.txt";
-      fs.readFile(path,'utf8',function(err,items)
-      {
-			//return list of files contained in a folder.
-    		
-       return  res.send( { value : items.split(/\r?\n/) });
-		})
+    fs.readFile(path, "utf8", function (err, items) {
+      //return list of files contained in a folder.
 
+      return res.send({ value: items.split(/\r?\n/) });
     });
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+  });
+
   // Receives an ajax get request from the client site to create sound
   app.get("/tabPress", function (req, res) {
     //call CreateSound function to create sound.
@@ -214,7 +206,7 @@ module.exports = function (app, passport) {
     }
 
     // call makeDir function here with appropriate function parameters from req
-  });	
+  });
 
   app.get("/cd", function (req, res) {
     //name of directory.
