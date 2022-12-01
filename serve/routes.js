@@ -5,12 +5,12 @@ var format = /^[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]*$/;
 const predictionFolder = require("./helpers/prediction.js");
 
 module.exports = function (app, passport) {
-  app.get("/", function (req, res) {
+  app.get("/test", function (req, res) {
     res.render("index", {
       user: req.user,
     });
   });
-
+  
   app.get("/images/image1", function (req, res) {
     res.render("image1", {
       user: req.user,
