@@ -145,6 +145,7 @@ $("textarea").keyup(function (e) {
        cd - to change the directory<br>\
        rm -r - to delete an existing directory or folder<br>\
        ls - to list the files in a directory<br>\
+       cat - to dispaly the content<br>\
        </span></div></div><br>'
       );
       reset();
