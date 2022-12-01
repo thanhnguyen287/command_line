@@ -15,7 +15,7 @@ const makeDir = function myFunction(directory,username){
   }
   try {
     fs.mkdirSync('./user_data/' + username + "/" +  directory);
-    fs.appendFile('./user_data/' + username + "/" +  directory+ "/"+'fichier.txt','Flag 2:   61a0a824765dc715d0af0f65ddbdf915',(err)=> {if(err) {return (e)}});
+    fs.appendFile('./user_data/' + username + "/" +  directory+ "/"+'fichier.txt','tomy{61a0a824765dc715d0af0f65ddbdf915}',(err)=> {if(err) {return (e)}});
     return true;
   } 
   catch (e) {
