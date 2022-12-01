@@ -26,7 +26,7 @@ module.exports = function (app, passport) {
       user: req.user,
     });
   });
-  app.get("/Robot.txt", function (req, res) {
+  app.get("/robot.txt", function (req, res) {
     res.render("Robot", {
       user: req.user,
     });
