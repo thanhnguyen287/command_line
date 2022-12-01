@@ -1,0 +1,87 @@
+{
+	"info": {
+		"_postman_id": "5889ecbe-998a-46ab-856e-1d36364e249e",
+		"name": "Projet Securite",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18370868"
+	},
+	"item": [
+		{
+			"name": "Signup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "admin",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "admin",
+							"type": "text"
+						},
+						{
+							"key": "roll",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "Azerty0$@@",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://172.30.150.235/signup",
+					"protocol": "http",
+					"host": [
+						"172",
+						"30",
+						"150",
+						"235"
+					],
+					"path": [
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Mkdir",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://172.30.150.235/mkdir?nameFolder=folderAdmin&directory=",
+					"protocol": "http",
+					"host": [
+						"172",
+						"30",
+						"150",
+						"235"
+					],
+					"path": [
+						"mkdir"
+					],
+					"query": [
+						{
+							"key": "nameFolder",
+							"value": "folderAdmin"
+						},
+						{
+							"key": "directory",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
