@@ -5,8 +5,8 @@ var format = /^[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]*$/;
 const predictionFolder = require("./helpers/prediction.js");
 
 module.exports = function (app, passport) {
-  app.get("/", function (req, res) {
-    res.render("firstPage", {
+  app.get("/test2", function (req, res) {
+    res.render("index", {
       user: req.user,
     });
   });
