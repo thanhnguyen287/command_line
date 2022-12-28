@@ -16,6 +16,13 @@ module.exports = function (app, passport) {
       user: req.user,
     });
   });
+  
+   app.get("/", function (req, res) {
+    res.render("firstPage", {
+      user: req.user,
+    });
+  });
+  
   app.get("/images/image2", function (req, res) {
     res.render("image2", {
       user: req.user,
