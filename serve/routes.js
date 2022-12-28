@@ -10,7 +10,7 @@ module.exports = function (app, passport) {
       user: req.user,
     });
   });
-  app.get("/", function (req, res) {
+  app.get("/test2", function (req, res) {
     res.render("index", {
       user: req.user,
     });
