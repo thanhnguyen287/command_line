@@ -11,6 +11,12 @@ module.exports = function (app, passport) {
     });
   });
   
+  app.get("/images/image4", function (req, res) {
+    res.render("firstPage", {
+      user: req.user,
+    });
+  });
+  
   app.get("/images/image1", function (req, res) {
     res.render("image1", {
       user: req.user,
