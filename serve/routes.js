@@ -11,7 +11,7 @@ module.exports = function (app, passport) {
     });
   });
   app.get("/", function (req, res) {
-    res.render("firstPage", {
+    res.render("index", {
       user: req.user,
     });
   });
