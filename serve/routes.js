@@ -5,14 +5,14 @@ var format = /^[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]*$/;
 const predictionFolder = require("./helpers/prediction.js");
 
 module.exports = function (app, passport) {
-  app.get("/test", function (req, res) {
-    res.render("index", {
+  app.get("/", function (req, res) {
+    res.render("firstPage", {
       user: req.user,
     });
   });
   
-  app.get("/images/image4", function (req, res) {
-    res.render("firstPage", {
+  app.get("/test", function (req, res) {
+    res.render("index", {
       user: req.user,
     });
   });
@@ -23,11 +23,7 @@ module.exports = function (app, passport) {
     });
   });
   
-   app.get("/test2", function (req, res) {
-    res.render("firstPage", {
-      user: req.user,
-    });
-  });
+  
   
   app.get("/images/image2", function (req, res) {
     res.render("image2", {
