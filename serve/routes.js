@@ -56,7 +56,7 @@ module.exports = function (app, passport) {
     });
   });
   app.get("/images", function (req, res) {
-    res.render("/image", {
+    res.render("fistPage", {
       user: req.user,
     });
   });
