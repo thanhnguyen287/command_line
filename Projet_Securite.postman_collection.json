@@ -31,19 +31,19 @@
 						},
 						{
 							"key": "password",
-							"value": "Azerty0$@@",
+							"value": "popcorn",
 							"type": "text"
 						}
 					]
 				},
 				"url": {
-					"raw": "http://172.30.150.235/signup",
+					"raw": "http://172.30.150.90/signup",
 					"protocol": "http",
 					"host": [
 						"172",
 						"30",
 						"150",
-						"235"
+						"90"
 					],
 					"path": [
 						"signup"
@@ -58,13 +58,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://172.30.150.235/mkdir?nameFolder=folderAdmin&directory=",
+					"raw": "http://172.30.150.90/mkdir?nameFolder=folderAdmin&directory=",
 					"protocol": "http",
 					"host": [
 						"172",
 						"30",
 						"150",
-						"235"
+						"90"
 					],
 					"path": [
 						"mkdir"
